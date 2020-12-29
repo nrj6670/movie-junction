@@ -13,8 +13,14 @@ import { loadDetail, loadTvShowDetail } from "../actions/detailAction";
 //react router
 import { Link } from "react-router-dom";
 
-const Movie = ({ title, release, image, id, type }) => {
+//location
+import { useLocation } from "react-router-dom";
+
+const Card = ({ title, release, image, id, type }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const pathname = location.pathname.split("/")[2];
+
   // Event handler
   const getMovieDetail = () => {
     document.body.style.overflow = "hidden";
@@ -32,12 +38,19 @@ const Movie = ({ title, release, image, id, type }) => {
 
   return (
     <MovieCard onClick={getMovieDetail}>
-      <Link to={`/movie/${id}`}>
+      <Link to={`/search/${pathname}/${id}`}>
         <div className="stats">
           <h1>{title}</h1>
           <p>{release}</p>
         </div>
-        <img src={`https://image.tmdb.org/t/p/original${image}`} alt={title} />
+        {image ? (
+          <img
+            src={`https://image.tmdb.org/t/p/original${image}`}
+            alt={title}
+          />
+        ) : (
+          <p>Preview not available</p>
+        )}
       </Link>
     </MovieCard>
   );
@@ -69,4 +82,4 @@ const MovieCard = styled(motion.div)`
   }
 `;
 
-export default Movie;
+export default Card;

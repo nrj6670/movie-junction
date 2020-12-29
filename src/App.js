@@ -8,18 +8,25 @@ import Home from "./pages/Home";
 
 //components
 import Nav from "./components/Nav";
+import SearchResult from "./pages/SearchResult";
 
 //router
-import { Route } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <GlobalStyles />
       <Nav />
-      <Route path={["/movie/:id", "/"]}>
-        <Home />
-      </Route>
+      <Switch location={location} key={location.pathname}>
+        <Route path={["/movie/:id", "/"]} exact>
+          <Home />
+        </Route>
+        <Route path={["/search/:string", "/search/:string/:id"]} exact>
+          <SearchResult />
+        </Route>
+      </Switch>
     </div>
   );
 }

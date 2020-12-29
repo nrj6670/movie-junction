@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //URL
-import { movieDetailURL, tvShowDetailURL } from "../api.js";
+import { movieDetailURL, tvShowDetailURL, searchURL } from "../api.js";
 
 export const loadDetail = (movie_id) => async (dispatch) => {
   dispatch({
@@ -29,6 +29,26 @@ export const loadTvShowDetail = (tvShow_Id) => async (dispatch) => {
     type: "LOAD_TV_SHOW_DETAIL",
     payload: {
       tvShowDetail: tvShowDetail.data,
+    },
+  });
+};
+
+export const fetchSearch = (input) => async (dispatch) => {
+  dispatch({
+    type: "LOADING",
+  });
+
+  const searchOutputMovie = await axios.get(searchURL("movie", input));
+  const searchOutputTvShow = await axios.get(searchURL("tv", input));
+
+  const tempArray = searchOutputMovie.data.results.concat(
+    searchOutputTvShow.data.results
+  );
+
+  dispatch({
+    type: "SEARCH",
+    payload: {
+      searchOutput: tempArray,
     },
   });
 };

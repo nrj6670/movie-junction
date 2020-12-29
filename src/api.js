@@ -17,6 +17,9 @@ export const popularTVShowsURL = () =>
 export const tvShowDetailURL = (tvShow_id) =>
   `${baseURLTV}${tvShow_id}?api_key=${apiKey}&language=en-US`;
 
+export const searchURL = (queryType, searchQuery) =>
+  `https://api.themoviedb.org/3/search/${queryType}?query=${searchQuery}&api_key=${apiKey}&language=en-US&page=1&include_adult=false`;
+
 //console.log(popularMoviesURL());
 
 /* 
