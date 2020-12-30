@@ -86,6 +86,18 @@ const MovieCard = styled(motion.div)`
   &:hover {
     transform: rotateY(10deg) rotateX(2deg);
   }
+
+  @media screen and (max-width: 739px) {
+    &:hover {
+      transform: rotateY(6deg) rotateX(1deg);
+    }
+  }
+
+  @media screen and (max-width: 509px) {
+    &:hover {
+      transform: rotateY(2deg) rotateX(0.5deg);
+    }
+  }
 `;
 
 export default Card;
