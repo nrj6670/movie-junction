@@ -66,9 +66,9 @@ const Home = () => {
 };
 
 const MovieList = styled(motion.div)`
-  padding: 0rem 5rem;
+  padding: 0rem 4rem;
   .category {
-    padding: 3rem 2rem;
+    padding: 3rem 0rem;
     color: white;
   }
 `;
@@ -79,6 +79,7 @@ const Movies = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   column-gap: 3rem;
   row-gap: 2rem;
+  perspective: 1000px;
 `;
 
 export default Home;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 //styled-component and framer motion
 import styled from "styled-components";
@@ -35,11 +35,15 @@ const Nav = () => {
     <Header>
       <StyledNav>
         <div className="logo">
-          <h1>Movie Junction</h1>
-          <img className="popcorn-img" src={popcorn} alt="popcorn-png" />
+          <Link to="/">
+            <h1>Movie Junction</h1>
+          </Link>
+          <Link to="/">
+            <img className="popcorn-img" src={popcorn} alt="popcorn-png" />
+          </Link>
         </div>
         <div className="search-bar">
-          <form className="search-container">
+          <form>
             <input value={textInput} onChange={inputHandler} type="text" />
             <button onClick={submitHandler} type="submit">
               Submit
@@ -69,6 +73,11 @@ const StyledNav = styled(motion.div)`
     display: flex;
     flex: 1 1 40rem;
     align-items: center;
+
+    a {
+      color: white;
+    }
+
     img {
       height: 6rem;
       width: 6rem;
@@ -76,43 +85,48 @@ const StyledNav = styled(motion.div)`
   }
   .search-bar {
     flex: 2 1 40rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    input {
-      flex: 2 1 40rem;
-      border: none;
-      padding: 0.7rem 1rem;
-      outline: none;
-      border-radius: 14px;
-    }
-    button {
-      flex: 1 1 40rem;
-      padding: 0.7rem 2rem;
-      border: none;
-      outline: none;
-      border-radius: 5px;
-      background: linear-gradient(315deg, #70b2d9 0%, #39e5b6 74%);
-      color: white;
-      margin-left: 2rem;
-      font-weight: 700;
+    form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      input {
+        width: 60%;
+        border: none;
+        padding: 0.7rem 1rem;
+        outline: none;
+        border-radius: 14px;
+      }
+      button {
+        padding: 0.5rem 2rem;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        background: linear-gradient(315deg, #70b2d9 0%, #39e5b6 74%);
+        color: white;
+        margin-left: 2rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
     }
   }
 
-  @media screen and (max-width: 910px) {
+  @media screen and (max-width: 911px) {
     .logo {
       width: 100%;
       justify-content: center;
     }
     .search-bar {
       margin-top: 2rem;
-      width: 100%;
-      input {
-        width: 100%;
-        margin-bottom: 1rem;
-      }
-      button {
-        margin-left: 30%;
+      form {
+        align-items: center;
+        input {
+          min-width: 75%;
+        }
+        button {
+          margin-top: 1rem;
+          min-width: 25%;
+          padding: 0.7rem 2rem;
+        }
       }
     }
   }

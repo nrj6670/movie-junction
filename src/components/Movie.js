@@ -51,6 +51,8 @@ const MovieCard = styled(motion.div)`
   overflow: hidden;
   background: white;
   cursor: pointer;
+  transition: all 0.2s ease;
+  transform-style: preserve-3d;
   .stats {
     height: 25%;
     h1 {
@@ -66,6 +68,10 @@ const MovieCard = styled(motion.div)`
     width: 100%;
     height: 80%;
     object-fit: fit;
+  }
+
+  &:hover {
+    transform: rotateY(10deg) rotateX(2deg);
   }
 `;
 

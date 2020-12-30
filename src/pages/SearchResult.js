@@ -19,7 +19,6 @@ const SearchResult = () => {
   //fetching location to load movie detail
   const location = useLocation();
   const pathID = location.pathname.split("/")[3];
-  console.log(pathID);
 
   return (
     <SearchList>
@@ -48,10 +47,10 @@ const SearchResult = () => {
 };
 
 const SearchList = styled(motion.div)`
-  padding: 0rem 5rem;
+  padding: 0rem 4rem;
   .header {
     color: white;
-    padding: 2rem 0rem;
+    padding: 3rem 0rem;
   }
 `;
 
@@ -61,6 +60,7 @@ const Container = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   column-gap: 3rem;
   row-gap: 2rem;
+  perspective: 1000px;
 `;
 
 export default SearchResult;
