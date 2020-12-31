@@ -67,6 +67,7 @@ const Home = () => {
 
 const MovieList = styled(motion.div)`
   padding: 0rem 4rem;
+  padding-bottom: 3rem;
   .category {
     padding: 3rem 0rem;
     color: white;

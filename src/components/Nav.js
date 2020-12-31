@@ -59,6 +59,7 @@ const Header = styled(motion.div)`
   min-height: 15vh;
   background: rgba(0, 0, 0, 0.3);
   color: white;
+  font-family: "Audiowide", sans-serif;
 `;
 
 const StyledNav = styled(motion.div)`

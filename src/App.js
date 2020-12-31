@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 //components
 import Nav from "./components/Nav";
 import SearchResult from "./pages/SearchResult";
+import Footer from "./components/Footer";
 
 //router
 import { Route, Switch, useLocation } from "react-router-dom";
@@ -27,6 +28,7 @@ function App() {
           <SearchResult />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

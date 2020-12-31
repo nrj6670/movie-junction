@@ -52,6 +52,7 @@ const SearchResult = () => {
 
 const SearchList = styled(motion.div)`
   padding: 0rem 4rem;
+  padding-bottom: 3rem;
   .header {
     color: white;
     padding: 3rem 0rem;
