@@ -37,7 +37,7 @@ const Movie = ({ title, release, image, id, type }) => {
           <h1>{title}</h1>
           <p>{release}</p>
         </div>
-        <img src={`https://image.tmdb.org/t/p/original${image}`} alt={title} />
+        <img src={`https://image.tmdb.org/t/p/w500${image}`} alt={title} />
       </Link>
     </MovieCard>
   );

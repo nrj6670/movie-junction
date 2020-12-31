@@ -45,7 +45,7 @@ const MovieDetails = () => {
             </Info>
             <div className="media">
               <img
-                src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w780${movieDetail.poster_path}`}
                 alt=""
               />
             </div>

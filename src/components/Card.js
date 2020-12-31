@@ -44,10 +44,7 @@ const Card = ({ title, release, image, id, type }) => {
           <p>{release}</p>
         </div>
         {image ? (
-          <img
-            src={`https://image.tmdb.org/t/p/original${image}`}
-            alt={title}
-          />
+          <img src={`https://image.tmdb.org/t/p/w185${image}`} alt={title} />
         ) : (
           <p>Preview not available</p>
         )}

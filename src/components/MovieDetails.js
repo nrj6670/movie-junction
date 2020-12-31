@@ -43,7 +43,7 @@ const MovieDetails = () => {
             </Info>
             <div className="media">
               <img
-                src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w780${movieDetail.poster_path}`}
                 alt=""
               />
             </div>
@@ -84,7 +84,7 @@ const Detail = styled(motion.div)`
   color: black;
   border-radius: 20px;
   z-index: 10;
-  
+
   .media {
     width: 90%;
     margin: auto;
