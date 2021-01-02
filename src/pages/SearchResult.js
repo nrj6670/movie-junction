@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 //components
 import Card from "../components/Card";
+import LoadingCard from "../components/LoadingCard";
 
 //location
 import { useLocation } from "react-router-dom";
@@ -22,30 +23,36 @@ const SearchResult = () => {
 
   return (
     <>
-      {!isLoading && (
-        <SearchList>
-          {pathID && <MovieDetails />}
-          <h2 className="header">Search result : </h2>
-          <Container>
-            {searchOutput.length ? (
-              searchOutput.map((data) => (
-                <Card
-                  title={data.name ? data.name : data.title}
-                  release={
-                    data.release_date ? data.release_date : data.first_air_date
-                  }
-                  image={data.poster_path}
-                  type={data.title ? "movie" : "tv_show"}
-                  id={data.id}
-                  key={data.id}
-                />
-              ))
-            ) : (
-              <h1>No results found</h1>
-            )}
-          </Container>
-        </SearchList>
-      )}
+      <SearchList>
+        {pathID && <MovieDetails />}
+        <h2 className="header">Search result : </h2>
+        <Container>
+          {isLoading && (
+            <>
+              <LoadingCard />
+              <LoadingCard />
+              <LoadingCard />
+              <LoadingCard />
+            </>
+          )}
+          {searchOutput.length ? (
+            searchOutput.map((data) => (
+              <Card
+                title={data.name ? data.name : data.title}
+                release={
+                  data.release_date ? data.release_date : data.first_air_date
+                }
+                image={data.poster_path}
+                type={data.title ? "movie" : "tv_show"}
+                id={data.id}
+                key={data.id}
+              />
+            ))
+          ) : (
+            <h1>No results found</h1>
+          )}
+        </Container>
+      </SearchList>
     </>
   );
 };
