@@ -35,7 +35,7 @@ export const loadTvShowDetail = (tvShow_Id) => async (dispatch) => {
 
 export const fetchSearch = (input) => async (dispatch) => {
   dispatch({
-    type: "LOADING",
+    type: "LOADING_SEARCH_RESULTS",
   });
 
   const searchOutputMovie = await axios.get(searchURL("movie", input));

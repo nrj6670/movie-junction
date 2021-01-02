@@ -5,7 +5,7 @@ import { popularMoviesURL, popularTVShowsURL } from "../api";
 
 const loadMovies = () => async (dispatch) => {
   dispatch({
-    type: "LOADING",
+    type: "LOADING_INITIAL_DATA",
   });
 
   const popularMovies = await axios.get(popularMoviesURL());

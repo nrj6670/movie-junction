@@ -1,4 +1,9 @@
-const initState = { movieDetail: [], searchOutput: [], isLoading: true };
+const initState = {
+  movieDetail: [],
+  searchOutput: [],
+  isLoading: true,
+  loadingSearchResults: true,
+};
 
 const detailReducer = (state = initState, action) => {
   switch (action.type) {
@@ -18,12 +23,17 @@ const detailReducer = (state = initState, action) => {
       return {
         ...state,
         searchOutput: action.payload.searchOutput,
-        isLoading: false,
+        loadingSearchResults: false,
       };
     case "LOADING":
       return {
         ...state,
         isLoading: true,
+      };
+    case "LOADING_SEARCH_RESULTS":
+      return {
+        ...state,
+        loadingSearchResults: true,
       };
     default:
       return {

@@ -21,7 +21,7 @@ import { useLocation } from "react-router-dom";
 
 const Home = () => {
   // EXTRACTING STATE
-  const { popular, popularTV, isLoading } = useSelector(
+  const { popular, popularTV, loadingData } = useSelector(
     (state) => state.movies
   );
   const dispatch = useDispatch();
@@ -40,8 +40,9 @@ const Home = () => {
       <h2 className="category">Popular movies</h2>
 
       <Movies>
-        {isLoading && (
+        {loadingData && (
           <>
+            <LoadingCard />
             <LoadingCard />
             <LoadingCard />
             <LoadingCard />
@@ -62,8 +63,9 @@ const Home = () => {
 
       <h2 className="category">Popular TV shows</h2>
       <Movies>
-        {isLoading && (
+        {loadingData && (
           <>
+            <LoadingCard />
             <LoadingCard />
             <LoadingCard />
             <LoadingCard />
