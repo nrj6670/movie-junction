@@ -33,6 +33,7 @@ const SearchResult = () => {
               <LoadingCard />
               <LoadingCard />
               <LoadingCard />
+              <LoadingCard />
             </>
           )}
           {searchOutput.length ? (
