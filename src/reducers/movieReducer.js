@@ -1,4 +1,4 @@
-const initState = { popular: [], popularTV: [] };
+const initState = { popular: [], popularTV: [], isLoading: true };
 
 const movieReducer = (state = initState, action) => {
   switch (action.type) {
@@ -7,7 +7,14 @@ const movieReducer = (state = initState, action) => {
         ...state,
         popular: action.payload.popular.results,
         popularTV: action.payload.popularTV.results,
+        isLoading: false,
       };
+    case "LOADING": {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
     default: {
       return {
         ...state,

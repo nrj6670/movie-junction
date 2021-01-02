@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 //components
 import Movie from "../components/Movie";
 import MovieDetails from "../components/MovieDetails";
+import LoadingCard from "../components/LoadingCard";
 
 //ACTIONS
 import loadMovies from "../actions/movieAction";
@@ -20,7 +21,9 @@ import { useLocation } from "react-router-dom";
 
 const Home = () => {
   // EXTRACTING STATE
-  const { popular, popularTV } = useSelector((state) => state.movies);
+  const { popular, popularTV, isLoading } = useSelector(
+    (state) => state.movies
+  );
   const dispatch = useDispatch();
   //History
   const location = useLocation();
@@ -35,7 +38,16 @@ const Home = () => {
     <MovieList>
       {pathID && <MovieDetails />}
       <h2 className="category">Popular movies</h2>
+
       <Movies>
+        {isLoading && (
+          <>
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+          </>
+        )}
         {popular.map((data) => (
           <Movie
             title={data.title}
@@ -50,6 +62,14 @@ const Home = () => {
 
       <h2 className="category">Popular TV shows</h2>
       <Movies>
+        {isLoading && (
+          <>
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+          </>
+        )}
         {popularTV.map((data) => (
           <Movie
             title={data.name}
